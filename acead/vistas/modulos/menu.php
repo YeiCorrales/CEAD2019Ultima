@@ -1,0 +1,218 @@
+<aside class="main-sidebar">
+
+	 <section class="sidebar">
+
+		<ul class="sidebar-menu">
+
+			<li class="active">
+
+				<a href="inicio">
+
+					<i class="fa fa-home"></i>
+					<span>Inicio</span>
+
+				</a>
+
+			</li>
+
+			<li>
+
+				<a href="usuarios">
+
+					<i class="fa fa-user"></i>
+					<span>Usuarios</span>
+
+				</a>
+
+			</li>
+
+			<li>
+
+				<a href="alumnos">
+
+					<i class="fa fa-users"></i>
+					<span>Alumnos</span>
+
+				</a>
+                            <ul class="treeview-menu">
+
+					<li>
+
+						<a href="historialacademico">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Historial Academico</span>
+
+						</a>
+
+					</li>
+
+<!--					<li>
+
+						<a href="modalidades">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Modalidades y Clases</span>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="seccion">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Secciones</span>
+
+						</a>
+
+					</li>-->
+
+				</ul>
+
+
+			</li>
+
+			<li class="treeview">
+
+				<a href="gestionacademica">
+
+					<i class="fa fa-university"></i>
+
+					<span>Gestión Académica</span>
+
+					<span class="pull-right-container">
+
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+				</a>
+
+				<ul class="treeview-menu">
+
+					<li>
+
+						<a href="gestionacademica">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Matrícula Actual</span>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="modalidades">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Administración</span>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="seccion">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Secciones</span>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="periodoacademico">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Periodo Academico</span>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+			</li>
+
+			<li>
+
+				<a href="registracalificaciones">
+
+					<i class="fa fa-pencil"></i>
+					<span>Registro de Calificaciones</span>
+
+				</a>
+
+
+
+			</li>
+
+
+
+
+			<li class="treeview">
+
+				<a href="gestionacademica">
+
+					<i class="fa fa-money"></i>
+
+					<span>Cobros</span>
+
+					<span class="pull-right-container">
+
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+				</a>
+
+				<ul class="treeview-menu">
+
+					<li>
+
+						<a href="pagomes">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Pago de Mensualidades</span>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="cobromatricula">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Pago de matricula </span>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+			</li>
+
+			<li>
+
+				<a href="configuracion">
+
+					<i class="fa fa-cog"></i>
+					<span>Configuracion</span>
+
+				</a>
+
+			</li>
+
+		</ul>
+
+	 </section>
+
+</aside>
