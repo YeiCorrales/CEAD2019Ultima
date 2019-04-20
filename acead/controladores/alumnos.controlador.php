@@ -27,7 +27,7 @@ class ControladorAlumnos{
 										 "Id_EstadoCivil" => $_POST["nuevoEstCivil"],
 										 "Id_Genero" => $_POST["nuevoGenero"],
 										 "Id_Descuento" => $_POST["nuevoDescuento"],
-									 	 "Direccion" => $_POST["nuevoDireccion"]);
+									 	 "Direccion" => strtoupper($_POST["nuevoDireccion"]));
 
 
 				$respuesta = ModeloAlumnos::mdlIngresarAlumno($tabla, $datos);
@@ -131,7 +131,8 @@ class ControladorAlumnos{
 										 "Cedula" => $_POST["editarCedula"],
 										 "Id_EstadoCivil" => $_POST["editarEstCivil"],
 										 "Id_Genero" => $_POST["editarGenero"],
-										 "Id_Descuento" => $_POST["editarDescuento"]);
+										 "Id_Descuento" => $_POST["editarDescuento"],
+										 "Direccion" => strtoupper($_POST["editarDireccion"]));
 
 
 				$respuesta = ModeloAlumnos::mdlEditarAlumno($tabla, $datos);

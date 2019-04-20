@@ -429,7 +429,7 @@ MODAL AGREGAR USUARIO
 
                   <span class="input-group-addon"><i class="fa fa-building-o"></i></span>
 
-                  <textarea class="form-control" rows="3" name= "nuevoDireccion" placeholder="DIRECCIÓN"></textarea>
+                  <textarea class="form-control" rows="3" name= "nuevoDireccion" placeholder="DIRECCIÓN" style="text-transform: uppercase"></textarea>
 
                 </div>
 
@@ -734,6 +734,18 @@ MODAL EDITAR USUARIO
 
             </div>
 
+          <!-- ENTRADA PARA LA DIRECCIÓN -->
+        <div class="form-group">
+
+          <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-building-o"></i></span>
+
+                <textarea class="form-control" rows="3" name= "editarDireccion" placeholder="DIRECCIÓN" style="text-transform: uppercase"></textarea>
+
+            </div>
+
+          </div>
 
           </div>
 

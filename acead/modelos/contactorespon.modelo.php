@@ -45,15 +45,15 @@ class ModeloContactoRespon{
 
 	static public function mdlIngresarContactoRespon($tabla, $datos){
 
-		$stmt = ConexionBD::Abrir_Conexion()->prepare("INSERT INTO $tabla SET PrimerNombre = :nombre1,
-                                                                   PrimerApellido = :apellido1,
+		$stmt = ConexionBD::Abrir_Conexion()->prepare("INSERT INTO $tabla SET Nombre = :nombre1,
+                                                                   Apellido = :apellido1,
                                                                    Telefono = :telefono,
                                                                    DescripContact = :descripcontact
                                                                 WHERE Id_Alumno = :id");
 
 		$stmt->bindParam(":id", $datos["Id_Alumno"], PDO::PARAM_STR);
-		$stmt->bindParam(":nombre1", $datos["PrimerNombre"], PDO::PARAM_STR);
-		$stmt->bindParam(":apellido1", $datos["PrimerApellido"], PDO::PARAM_STR);
+		$stmt->bindParam(":nombre1", $datos["Nombre"], PDO::PARAM_STR);
+		$stmt->bindParam(":apellido1", $datos["Apellido"], PDO::PARAM_STR);
 		$stmt->bindParam(":telefono", $datos["Telefono"], PDO::PARAM_STR);
 		$stmt->bindParam(":descripcontact", $datos["DescripContact"], PDO::PARAM_STR);
 

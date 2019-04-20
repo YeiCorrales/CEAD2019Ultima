@@ -81,7 +81,7 @@ $(".tablas").on("click", ".btnEditarUsuario", function(){
 			$("#editarDpto").val(respuesta["Id_Departamento"]);
 			$("#editarEstCivil").val(respuesta["Id_EstadoCivil"]);
 			$("#editarGenero").val(respuesta["Id_Genero"]);
-			$("#editarRol").val(respuesta["Id_Rol"]);
+			$("#editarDireccion").val(respuesta["Direccion"]);
 
 
 			$("#fotoActual").val(respuesta["foto"]);

@@ -249,6 +249,7 @@ class ControladorUsuarios{
 										 "Id_EstadoCivil" => $_POST["nuevoEstCivil"],
 										 "Id_Genero" => $_POST["nuevoGenero"],
 										 "Id_Rol" => $_POST["nuevoRol"],
+										 "Direccion" => strtoupper($_POST["nuevoDireccion"]),
 										 "Id_Estado" => $nuevo,
 									   "PrimerIngreso" => $primeringreso);
 
@@ -372,10 +373,10 @@ class ControladorUsuarios{
 
 										}
 
-				$datos = array("PrimerNombre" => $_POST["editarNombre1"],
-										 "PrimerApellido"	=> $_POST["editarApellido1"],
-										 "SegundoNombre"	=> $_POST["editarNombre2"],
-										 "SegundoApellido"	=> $_POST["editarApellido2"],
+				$datos = array("PrimerNombre" => strtoupper($_POST["editarNombre1"]),
+										 "PrimerApellido"	=> strtoupper($_POST["editarApellido1"]),
+										 "SegundoNombre"	=> strtoupper($_POST["editarNombre2"]),
+										 "SegundoApellido"	=> strtoupper($_POST["editarApellido2"]),
 										 "CorreoElectronico" => $_POST["editarEmail"],
 										 "Telefono" => $_POST["editarTelefono"],
 										 "Cedula" => $_POST["editarCedula"],
@@ -384,7 +385,9 @@ class ControladorUsuarios{
 										 "Id_EstadoCivil" => $_POST["editarEstCivil"],
 										 "Id_Genero" => $_POST["editarGenero"],
 										 "Usuario" => $_POST["editarUsuario"],
-										 "Id_Rol" => $_POST["editarRol"]);
+										 "Id_Rol" => $_POST["editarRol"],
+									   "Direccion" => strtoupper($_POST["editarDireccion"]));
+
 
 							  // "Id_Rol" => $_POST["editarPerfil"]
 

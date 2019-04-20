@@ -50,10 +50,10 @@ class ModeloUsuarios {
       ============================================= */
 
     static public function mdlIngresarUsuario($tabla, $datos) {
-        echo "<script type='text/javascript'>alert('sql script')</script>";
 
-        $stmt = ConexionBD::Abrir_Conexion()->prepare("INSERT INTO $tabla(PrimerNombre, SegundoNombre, PrimerApellido, SegundoApellido, CorreoElectronico, Telefono, Cedula, Usuario, Contrasena, Id_Departamento, Id_Estado, Id_EstadoCivil, Id_Genero, Id_Rol, PrimerIngreso)
-																									VALUES (:nombre1, :nombre2, :apellido1, :apellido2, :email, :telefono, :cedula, :usuario, :password, :departmento, :estado, :estcivil, :genero, :rol, :primeringreso)");
+
+        $stmt = ConexionBD::Abrir_Conexion()->prepare("INSERT INTO $tabla(PrimerNombre, SegundoNombre, PrimerApellido, SegundoApellido, CorreoElectronico, Telefono, Cedula, Usuario, Contrasena, Id_Departamento, Id_Estado, Id_EstadoCivil, Id_Genero, Id_Rol, Direccion, PrimerIngreso)
+																									VALUES (:nombre1, :nombre2, :apellido1, :apellido2, :email, :telefono, :cedula, :usuario, :password, :departmento, :estado, :estcivil, :genero, :rol, :direccion, :primeringreso)");
 
 
         $stmt->bindParam(":nombre1", $datos["PrimerNombre"], PDO::PARAM_STR);
@@ -70,6 +70,7 @@ class ModeloUsuarios {
         $stmt->bindParam(":estcivil", $datos["Id_EstadoCivil"], PDO::PARAM_STR);
         $stmt->bindParam(":genero", $datos["Id_Genero"], PDO::PARAM_STR);
         $stmt->bindParam(":rol", $datos["Id_Rol"], PDO::PARAM_STR);
+        $stmt->bindParam(":direccion", $datos["Direccion"], PDO::PARAM_STR);
         $stmt->bindParam(":primeringreso", $datos["PrimerIngreso"], PDO::PARAM_INT);
 
         if ($stmt->execute()) {
@@ -103,7 +104,8 @@ class ModeloUsuarios {
                                                                    Id_Departamento = :departmento,
                                                                    Id_EstadoCivil = :estcivil,
                                                                    Id_Genero = :genero,
-                                                                   Id_Rol = :rol
+                                                                   Id_Rol = :rol,
+                                                                   Direccion = :direccion
                                                                 WHERE Usuario = :usuario");
 
         $stmt->bindParam(":nombre1", $datos["PrimerNombre"], PDO::PARAM_STR);
@@ -119,6 +121,7 @@ class ModeloUsuarios {
         $stmt->bindParam(":estcivil", $datos["Id_EstadoCivil"], PDO::PARAM_STR);
         $stmt->bindParam(":genero", $datos["Id_Genero"], PDO::PARAM_STR);
         $stmt->bindParam(":rol", $datos["Id_Rol"], PDO::PARAM_STR);
+        $stmt->bindParam(":direccion", $datos["Direccion"], PDO::PARAM_STR);
 
 
         if ($stmt->execute()) {

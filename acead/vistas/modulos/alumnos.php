@@ -349,7 +349,7 @@ MODAL AGREGAR ALUMNO
 
                 <span class="input-group-addon"><i class="fa fa-building-o"></i></span>
 
-                <textarea class="form-control" rows="3" name= "nuevoDireccion" placeholder="DIRECCIÓN"></textarea>
+                <textarea class="form-control" rows="3" name= "nuevoDireccion" placeholder="DIRECCIÓN" style="text-transform: uppercase"></textarea>
 
               </div>
 
@@ -596,7 +596,18 @@ MODAL EDITAR ALUMNO
 
             </div>
 
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
+            <div class="form-group">
 
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-building-o"></i></span>
+
+                <textarea class="form-control" rows="3" name= "editarDireccion" placeholder="DIRECCIÓN" style="text-transform: uppercase"></textarea>
+
+              </div>
+
+            </div>
 
           </div>
 
@@ -670,7 +681,7 @@ MODAL CONTACTO RESPONSABLE
 
                  <span class="input-group-addon"><i class="fa fa-id-badge"></i></span>
 
-                   <input type="text" class="form-control input-lg" id="editarAlumno" name="editarAlumno" readonly value="">
+                   <input type="text" class="form-control input-lg" id="editarAlumnoContact" name="editarAlumnoContact" readonly value="">
 
 
                </div>
@@ -685,7 +696,7 @@ MODAL CONTACTO RESPONSABLE
 
                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                 <input type="text" class="form-control input-lg" name="nuevoNombre1" id="nuevoNombre1" placeholder="Primer Nombre" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]*$|" style="text-transform: uppercase" required>
+                 <input type="text" class="form-control input-lg" name="nuevoNombreContacto1" id="nuevoNombreContacto1" placeholder="Primer Nombre" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]*$|" style="text-transform: uppercase" required>
 
                </div>
 
@@ -699,7 +710,7 @@ MODAL CONTACTO RESPONSABLE
 
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoApellido1" placeholder="Primer Apellido" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]*$|" style="text-transform: uppercase" required>
+                <input type="text" class="form-control input-lg" name="nuevoApellidoContacto1" placeholder="Primer Apellido" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]*$|" style="text-transform: uppercase" required>
 
               </div>
 
@@ -728,7 +739,7 @@ MODAL CONTACTO RESPONSABLE
 
                     <span class="input-group-addon"><i class="fa fa-phone"></i></span>
 
-                    <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="TELÉFONO" minlength="8" maxlength="15" pattern="[0-9]{8}">
+                    <input type="text" class="form-control input-lg" name="nuevoTelefonoContacto" placeholder="TELÉFONO" minlength="8" maxlength="15" pattern="[0-9]{8}">
 
                   </div>
 

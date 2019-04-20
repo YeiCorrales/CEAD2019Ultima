@@ -8,19 +8,19 @@ class ControladorContactoRespon{
 
 	static public function ctrCrearContactoRespon(){
 
-		if(isset($_POST["nuevoNombre1"])){
+		if(isset($_POST["nuevoNombreContacto1"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre1"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombreContacto1"])){
 
 
 				$tabla = "tbl_contrespon";
 
 
-				$datos = array("Id_Alumno" => $_POST["editarAlumno"],
-					           "PrimerNombre" => strtoupper($_POST["nuevoNombre1"]),
-										 "PrimerApellido"	=> strtoupper( $_POST["nuevoApellido1"]),
-							       "DescripContact"	=> strtoupper( $_POST["nuevoContacto!"]),
-                     "Telefono" => $_POST["nuevoTelefono"]);
+				$datos = array("Id_Alumno" => $_POST["editarAlumnoContact"],
+					           "Nombre" => strtoupper($_POST["nuevoNombreContacto1"]),
+										 "Apellido"	=> strtoupper( $_POST["nuevoApellidoContacto1"]),
+							       "DescripContact"	=> strtoupper( $_POST["nuevoContacto1"]),
+                     "Telefono" => $_POST["nuevoTelefonoContacto"]);
 
 				$respuesta = ModeloContactoRespon::mdlIngresarContactoRespon($tabla, $datos);
 

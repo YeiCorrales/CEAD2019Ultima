@@ -34,6 +34,7 @@ $(".tablas").on("click", ".btnEditarAlumno", function(){
 			$("#editarEmail").val(respuesta["CorreoElectronico"]);
 			$("#editarEstCivil").val(respuesta["Id_estadocivil"]);
 			$("#editarGenero").val(respuesta["Id_genero"]);
+			$("#editarDireccion").val(respuesta["Direccion"]);
 
 
 		},
@@ -140,7 +141,7 @@ $(".tablas").on("click", ".btnContactoResponsable", function(){
     success: function(respuesta){
 
                         //alert(respuesta);
-      $("#IdAlumno").val(respuesta["Id_Alumno"]);
+      $("#editarAlumnoContact").val(respuesta["Id_Alumno"]);
 
 
   },
