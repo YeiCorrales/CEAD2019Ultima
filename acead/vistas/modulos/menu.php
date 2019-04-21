@@ -94,7 +94,7 @@
 
 					<li>
 
-						<a href="gestionacademica">
+						<a href="index.php?ruta=gestionacademica&periodo=0">
 
 							<i class="fa fa-circle-o"></i>
 							<span>Matrícula Actual</span>

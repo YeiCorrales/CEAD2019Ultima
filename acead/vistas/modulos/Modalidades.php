@@ -942,6 +942,266 @@ MODAL EDITAR CLASE
 
 </section>
 
+<!-- FORMULARIO DE AULAS -->
+
+    <section class="content" style="width:900px">
+
+      <div class="box">
+
+        <!-- BOTON AGREGAR AULA DE CLASES -->
+          <div class="box-header with-border">
+
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarAula">
+
+                  Agregar Aula
+
+                </button>
+
+              </div>
+
+
+                <div class="box-body">
+
+                  <table class="table table-bordered table-striped dt-responsive tablas">
+
+                    <thead>
+
+                     <tr>
+
+                       <th style="width:10px">#</th>
+                       <th style="width:10px">Id</th>
+                       <th>Aula</th>
+                       <th>Acciones</th>
+
+
+                     </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <?php
+
+
+
+                        $item = null;
+                        $valor = null;
+                        $aulas = ControladorAulas::ctrMostrarAulas($item, $valor);
+
+                       foreach ($aulas as $key => $value){
+
+                          echo ' <tr>
+                                  <td>'.($key+1).'</td>
+                                  <td>'.$value["Id_Aula"].'</td>
+                                  <td>'.$value["Num_Aula"].'</td>
+
+                                  <td>
+
+                                    <div class="btn-group">
+
+                                      <button class="btn btn-warning btnEditarAula" idAula="'.$value["Id_Aula"].'" data-toggle="modal" data-target="#modalEditarAula"><i class="fa fa-pencil"></i></button>
+
+
+
+                                    </div>
+
+                                  </td>
+
+                                </tr>';
+                        }
+
+
+                        ?>
+
+
+                    </tbody>
+
+                  </table>
+
+                </div>
+
+                <!-- /.content -->
+      </div>
+
+<!--=====================================
+MODAL AGREGAR AULA
+======================================-->
+
+<div id="modalAgregarAula" class="modal fade" role="dialog">
+
+<div class="modal-dialog">
+
+<div class="modal-content">
+
+  <form role="form" method="post" enctype="multipart/form-data">
+
+    <!--=====================================
+    CABEZA DEL MODAL
+    ======================================-->
+
+    <div class="modal-header" style="background:#3c8dbc; color:white">
+
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+      <h4 class="modal-title">Agregar Aula</h4>
+
+    </div>
+
+    <!--=====================================
+    CUERPO DEL MODAL
+    ======================================-->
+
+    <div class="modal-body">
+
+      <div class="box-body">
+
+        <!-- ENTRADA PARA EL NOMBRE DEL AULA-->
+
+        <div class="form-group">
+
+          <div class="input-group">
+
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+            <input type="text" class="form-control input-lg" name="nuevoNombreAula" id="nuevoNombreAula" placeholder="Nombre del Aula" style="text-transform: uppercase" maxlength="" required>
+
+          </div>
+
+        </div>
+
+       </div>
+
+     </div>
+
+    <!--=====================================
+    PIE DEL MODAL
+    ======================================-->
+
+    <div class="modal-footer">
+
+      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+      <button type="submit" class="btn btn-primary">Guardar Aula</button>
+
+    </div>
+
+    <?php
+
+      $crearOrientacion = new ControladorAulas();
+      $crearOrientacion -> ctrCrearAula();
+
+    ?>
+
+
+
+  </form>
+
+</div>
+
+</div>
+
+</div>
+
+<!--=====================================
+MODAL EDITAR ORIENTACION
+======================================-->
+
+<div id="modalEditarAula" class="modal fade" role="dialog">
+
+<div class="modal-dialog">
+
+<div class="modal-content">
+
+  <form role="form" method="post" enctype="multipart/form-data">
+
+    <!--=====================================
+    CABEZA DEL MODAL
+    ======================================-->
+
+    <div class="modal-header" style="background:#f39c12; color:white">
+
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+      <h4 class="modal-title">Editar Aula</h4>
+
+    </div>
+
+    <!--=====================================
+    CUERPO DEL MODAL
+    ======================================-->
+
+    <div class="modal-body">
+
+      <div class="box-body">
+
+
+        <!-- ID DEL AULA -->
+
+         <div class="form-group">
+
+            <div class="input-group">
+
+              <span class="input-group-addon"><i class="fa fa-id-badge"></i></span>
+
+
+              <input type="text" class="form-control input-lg" id="editarIdAula" name="editarIdAula" readonly value="">
+
+
+            </div>
+
+          </div>
+
+        <!-- ENTRADA PARA EL NOMBRE -->
+
+        <div class="form-group">
+
+          <div class="input-group">
+
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+            <input type="text" class="form-control input-lg" name="editarAula" id="editarAula" value=""  style="text-transform: uppercase" maxlength="40" required>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+    <!--=====================================
+    PIE DEL MODAL
+    ======================================-->
+
+    <div class="modal-footer">
+
+      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+      <button type="submit" class="btn btn-primary">Modificar Aula </button>
+
+    </div>
+
+    <?php
+
+      $editarOrientacion = new ControladorAulas();
+      $editarOrientacion -> ctrEditarAula();
+
+    ?>
+
+     </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- /.box -->
+
+</section>
+<!-- /.box -->
+
+
 <!-- /.ultimo div -->
 </div>
 <!-- /.content-wrapper -->

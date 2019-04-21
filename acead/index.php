@@ -15,6 +15,7 @@ require_once "controladores/cobromatricula.controlador.php";
 require_once "controladores/mostrarprecio.controlador.php";
 require_once "controladores/pagomes.controlador.php";
 require_once "controladores/secciones.controlador.php";
+require_once "controladores/aulas.controlador.php";
 
 require_once "modelos/usuarios.modelo.php";
 require_once "modelos/alumnos.modelo.php";
@@ -30,6 +31,7 @@ require_once "modelos/cobromatricula.modelo.php";
 require_once "modelos/mostrarprecio.modelo.php";
 require_once "modelos/pagomes.modelo.php";
 require_once "modelos/secciones.modelo.php";
+require_once "modelos/aulas.modelo.php";
 
 
 

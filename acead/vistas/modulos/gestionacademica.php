@@ -41,6 +41,8 @@
 
           }
 
+          $pr = 0;
+
           $matricula = ControladorMatricula::ctrMostrarmatricula($per);
 
           foreach ($matricula as $key => $value){
@@ -52,7 +54,7 @@
                 Imprimir Matricula Global
 
               </button>';
-              
+
               ?>
 
         </div>
