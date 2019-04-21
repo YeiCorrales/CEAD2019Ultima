@@ -10,16 +10,18 @@ $.ajax({
     data: param,
     dataType: 'json',
     success: function(data){
-
-
+       
+       $('#tblhistorial tbody').html('')
         $.each(data, function(i, item){
-           // alert(item.NC);
+           // alert(item.NC);                
             //aqui va el codigo para insertar los datos en la tabla
-            $('#tblhistorial tbody').append('<TR><td style="display:none;">'+item.IDA+'</td><td>'+item.EST+'</td><td>'+item.ID+'</td><td>'+item.NC+'</td><td>'+item.NF+'</td><td>'+item.STATUS+'</td><td><button class="btn btn-warning" id="printhistorial" name="printhistorial"><i class="fa fa-print"></i></button></td></TR>');
+            
+            $('#tblhistorial tbody').append('<TR><td style="display:none;">'+item.IDA+'</td><td>'+item.EST+'</td><td>'+item.CE+'</td><td>'+item.DMO+'</td><td>'+item.nombre+'</td><td><button class="btn btn-warning" id="printhistorial" name="printhistorial"><i class="fa fa-print"></i></button></td></TR>');
         });
     },
     error: function(xhr, status){
-        /*alert("ERROR: " + xhr + " >> " + status);*/
+        //
+        //alert("ERROR: " + xhr + " >> " + status);
     }
 });
 

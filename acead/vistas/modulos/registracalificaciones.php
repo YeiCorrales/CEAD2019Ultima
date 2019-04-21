@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-
+   
     <section class="content-header">
 
         <h1>
@@ -87,6 +87,12 @@
                                         </th>
                                         <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 199px;">
                                            TELEFONO
+                                        </th>
+                                        <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 199px;">
+                                           NOTA
+                                        </th>
+                                        <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 199px;">
+                                           STATUS
                                         </th>
 <!--                                        <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 199px;">
                                             <button class="btn btn-success" id="btntodos">REGISTRAR TODOS</button>

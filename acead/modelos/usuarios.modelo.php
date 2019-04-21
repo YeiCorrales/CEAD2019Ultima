@@ -282,11 +282,17 @@ switch ($funcion) { //ejecucion del metodo recibido, capturado por input_get
     case 'respuestas':
         Agregarespuesta();
         break;
+        case 'respuestasedit':
+        Agregarespuestaedit();
+        break;
     case 'cambiapass':
         DirigeCambioPass();
         break;
     case 'evaluaresp':
         limiterespuestas();
+        break;
+    case 'evaluarespedit':
+        limiterespuestasedit();
         break;
     case 'cambiopass':
         cambiopass();
@@ -323,6 +329,9 @@ switch ($funcion) { //ejecucion del metodo recibido, capturado por input_get
         break;
     case 'confcambiapass':
         metodo_confcambiapass(); //Se llama cuando se confirma el cambio del passwprd del usuario validado
+        break;
+    case 'editpreguntaspass':
+        metodo_editpreguntaspass(); //Se llama cuando se confirma el cambio del passwprd del usuario validado
         break;
 }
 
@@ -612,3 +621,49 @@ function metodo_confcambiapass(){
         $stmt= ConexionBD::Abrir_Conexion()->prepare("select * from tbl_usuarios where usuario='".$usuario."';");
         $stmt->execute();
     }*/
+function limiterespuestasedit() {
+    session_start();
+    $IdU = $_SESSION['id'];
+    $stmt = ConexionBD::Abrir_Conexion()->prepare("select count(*) AS cantidad from tbl_Preguntasusuario where Id_usuario=" . $IdU . "");
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_BOTH);
+    $long = count($result);
+
+    $arreglo = array();
+    if ($long == 0) {
+        echo '{"sEcho":1,"iTotalRecords":"0","iTotalDisplayRecords":"0","aaData":[]}';
+    } else {
+        foreach ($result as $data) {
+            $arreglo["data"][] = $data;
+        }
+        echo json_encode($arreglo);
+    }
+}
+
+function Agregarespuestaedit() {
+    //$IdU = $_SESSION['id'];
+    //echo '<script>alert("Hola");</script>';
+    session_start();
+    $IdU = $_SESSION["id"];
+
+    $fecha = date('Y-m-d');
+    $hora = date('H:i:s');
+
+    $fechaActual2 = $fecha . ' ' . $hora;
+
+    //$IdU = 1;
+    $hoy = getdate();
+    $fechaactual = $hoy['year'] . "-" . $hoy['mon'] . "-" . $hoy['mday'];
+    $r = filter_input(INPUT_POST, 'Respuesta');
+    $IdP = filter_input(INPUT_POST, 'Id_Pregunta');
+    //echo "<script>alert('INSERT INTO tbl_preguntasusuario(Respuesta, Id_usuario, Id_Pregunta, FechaCreacion, FechaModificacion, CreadoPor, ModificadoPor) VALUES('".$r."', ".$IdU.", ".$IdP.", '".$fechaactual."', '".$fechaactual."', 'Autoregistro', 'Autoregistro')');</script>";
+    //$stmt = ConexionBD::Abrir_Conexion()->prepare("Insert into tbl_preguntasusuario(Respuesta, Id_usuario, Id_Pregunta, FechaCreacion, FechaModificacion, CreadoPor, ModificadoPor) values('".$r."', ".$IdU.", ".$IdP.", '".$fechaactual."', '".$fechaactual."', 'AutoRegistro', 'Autoregistro')");
+
+    $stmt = ConexionBD::Abrir_Conexion()->prepare("update tbl_preguntasusuario set respuesta='".$r."', fechamodificacion='".$fechaactual."' where id_usuario=".$IdU." and id_pregunta=".$IdP.";");
+    $stmt->execute();
+//    $stmt2= ConexionBD::Abrir_Conexion()->prepare("update tbl_usuarios set preguntascontestadas=preguntascontestadas+1 where id_usuario = ".$IdU.";");
+//    $stmt2->execute();
+    
+    ConexionBD::Inserta_bitacora($fechaActual2, 'Seguridad en acceso', 'Actualizando pregunta de seguridad', $IdU, 2);
+    //$stmt->close();
+}

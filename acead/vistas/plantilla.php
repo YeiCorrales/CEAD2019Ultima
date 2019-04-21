@@ -122,8 +122,10 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "registracalificaciones" ||
          $_GET["ruta"] == "pagomes" ||
          $_GET["ruta"] == "cobromatricula" ||
+         $_GET["ruta"] == "preguntasedit" ||
          $_GET["ruta"] == "alumdata" ||
          $_GET["ruta"] == "roles" ||
+         $_GET["ruta"] == "cambiopassedit" ||
          $_GET["ruta"] == "salir"){
         include "modulos/".$_GET["ruta"].".php";
       }else{

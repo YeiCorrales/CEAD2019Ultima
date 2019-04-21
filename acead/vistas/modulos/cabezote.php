@@ -78,7 +78,21 @@
 					<!-- Dropdown-toggle -->
 
 					<ul class="dropdown-menu">
+                                                <li class="user-body text-right">
+                                                    <div class="pull-right">
 
+                                                        <a href="cambiopassedit" class="btn-flat text-red">Cambiar password</a>
+
+							</div>
+                                                </li>
+                                                <li class="user-body text-right">
+                                                     <div class="pull-right">
+
+                                                        <a href="preguntasedit" class="btn-flat text-red">Cambiar preguntas de seguridad</a>
+
+							</div>
+                                                </li>
+                                               
 
 						<li class="user-body">
 
@@ -89,10 +103,14 @@
 							</div>
 
 						</li>
+                                                
+                                                
 
 					</ul>
+                                        
 
 				</li>
+                                
 
 			</ul>
 

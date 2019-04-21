@@ -99,7 +99,7 @@ $('#cbosecciones').change(function(){
              
                 $.each(data, function(i, item){
 //                    $('#cbosecciones').append('<option value="'+item.IDS+'">'+item.DS+'</option>');
-                    $('#tblalumnos tbody').append('<tr style="text-align: center;"><td>'+item.IDA+'</td><td>'+item.nombre+'</td><td>'+item.CE+'</td><td>'+item.TEL+'</td><td><button class="btn btn-warning" name="btnnota" data-toggle="modal" data-target="#modalagregarnota"><i class="fa fa-pencil"></i></button></td></tr>');
+                    $('#tblalumnos tbody').append('<tr style="text-align: center;"><td>'+item.IDA+'</td><td>'+item.nombre+'</td><td>'+item.CE+'</td><td>'+item.TEL+'</td><td>'+item.NF+'</td><td>'+item.OBS+'</td><td><button class="btn btn-warning" name="btnnota" data-toggle="modal" data-target="#modalagregarnota"><i class="fa fa-pencil"></i></button></td></tr>');
                 });
           
 
