@@ -28,7 +28,22 @@ public function traerImpresionReporte(){
 $d = $this->alumno;
 $nombrealumno = $this->nombrealumno;
 $ct = $this->cuerpotabla;
-$respuestaReporte = ControladorMatricula::ctrMostrarMatricula();
+
+$periodo = 0;
+
+$periodo = $_GET["periodo"];
+
+if($periodo != null){
+
+  $per = $_GET["periodo"];
+
+}else{
+
+  $per = null;
+
+}
+
+$respuestaReporte = ControladorMatricula::ctrMostrarMatricula($per);
 
 //$ct = '<tr><td>11</td><td>Hola a todos</td><td>bb</td><td>cc</td></tr>';
 if(isset($respuestaReporte)){

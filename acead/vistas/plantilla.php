@@ -9,9 +9,7 @@ session_start();
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
   <title>Academia CEAD</title>
-
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -33,6 +31,9 @@ session_start();
 
   <!-- Theme style -->
   <link rel="stylesheet" href="vistas/dist/css/AdminLTE.css">
+
+  <!-- CSS checkbox -->
+  <link rel="stylesheet" href="vistas/dist/css/check.css">
 
   <!-- AdminLTE Skins -->
   <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
@@ -121,6 +122,8 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "registracalificaciones" ||
          $_GET["ruta"] == "pagomes" ||
          $_GET["ruta"] == "cobromatricula" ||
+         $_GET["ruta"] == "alumdata" ||
+         $_GET["ruta"] == "roles" ||
          $_GET["ruta"] == "salir"){
         include "modulos/".$_GET["ruta"].".php";
       }else{
@@ -180,7 +183,6 @@ CUERPO DOCUMENTO
 <script src="vistas/js/mostrarprecio.js"></script>
 <script src="vistas/js/pagomes.js"></script>
 <script src="vistas/js/seccion.js"></script>
-<script src="vistas/js/orientacionmodalida.js"></script>
 
 
 </body>

@@ -78,7 +78,7 @@
 
                                   <div class="btn-group">
 
-                                    <button class="btn btn-warning btnEditarPeriodo" idPeriodo="'.$value["Id_PeriodoAcm"].'" data-toggle="modal" data-target="#modalEditarPeriodo"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-warning btnEditarPeriodo" title="Editar" idPeriodo="'.$value["Id_PeriodoAcm"].'" data-toggle="modal" data-target="#modalEditarPeriodo"><i class="fa fa-pencil"></i></button>
 
 
 
@@ -111,7 +111,7 @@
 
 
 <!--=====================================
-MODAL AGREGAR USUARIO
+MODAL AGREGAR PERIODO ACADEMICO
 ======================================-->
 
 <div id="modalAgregarPeriodo" class="modal fade" role="dialog">
@@ -147,9 +147,9 @@ MODAL AGREGAR USUARIO
             <div class="form-group">
               <label>Nombre Periodo Academico</label>
 
-              <div class="input-group">
+              <div class="input-group" title="Nombre del Perido">
 
-                <span class="input-group-addon"><i class="fa fa-cog"></i></span>
+                <span class="input-group-addon"><i class="fa fa-cog" title="Nombre del Perido"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoPeriodo" id="nuevoPeriodo" placeholder="PERIODO ACADEMICO"  style="text-transform: uppercase" maxlength="30" required>
 
@@ -163,11 +163,11 @@ MODAL AGREGAR USUARIO
           <div class="form-group">
             <label>Fecha Inicial:</label>
 
-            <div class="input-group date">
+            <div class="input-group date" title="Fecha Inicial">
 
-              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <span class="input-group-addon"><i class="fa fa-calendar" title="Fecha Inicial"></i></span>
 
-              <input type="text" class="form-control pull-right" data-date-format='yyyy-mm-dd' placeholder="DD-MM-YYYY" name="FechaInicial" id="datepicker">
+              <input type="text" class="form-control pull-right" data-date-format='yyyy-mm-dd' placeholder="DD-MM-YYYY" name="FechaInicial" id="datepicker" required>
             </div>
 
           </div>
@@ -178,11 +178,11 @@ MODAL AGREGAR USUARIO
           <div class="form-group">
             <label>Fecha Final:</label>
 
-            <div class="input-group date">
+            <div class="input-group date" title="Fecha Final">
 
-              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <span class="input-group-addon"><i class="fa fa-calendar" title="Fecha Final"></i></span>
 
-              <input type="text" class="form-control pull-right" placeholder="DD-MM-YYYY" data-date-format='yyyy-mm-dd' name="FechaFinal" id="datepicker2">
+              <input type="text" class="form-control pull-right" placeholder="DD-MM-YYYY" data-date-format='yyyy-mm-dd' name="FechaFinal" id="datepicker2" required>
             </div>
             <!-- /.input group -->
           </div>
@@ -194,11 +194,11 @@ MODAL AGREGAR USUARIO
 
             <div class="form-group">
 
-              <div class="input-group">
+              <div class="input-group" title="Estado del Periodo">
 
-                <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                <span class="input-group-addon"><i class="fa fa-asterisk" title="Estado del Periodo"></i></span>
 
-                <select class="form-control input-lg" name="estadoperiodo" id="estadoperiodo">
+                <select class="form-control input-lg" name="estadoperiodo" id="estadoperiodo" required>
 
                   <option value="">Seleccionar Estado</option>
 
@@ -286,9 +286,9 @@ MODAL EDITAR PERIODO
             <div class="form-group">
               <label>Nombre Periodo Academico</label>
 
-              <div class="input-group">
+              <div class="input-group" title="Nombre del Periodo">
 
-                <span class="input-group-addon"><i class="fa fa-cog"></i></span>
+                <span class="input-group-addon"><i class="fa fa-cog" title="Nombre del Periodo"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarPeriodo" id="editarPeriodo" placeholder="PERIODO ACADEMICO"  style="text-transform: uppercase" maxlength="30" required>
 
@@ -302,9 +302,9 @@ MODAL EDITAR PERIODO
           <div class="form-group">
             <label>Fecha Inicial:</label>
 
-            <div class="input-group date">
+            <div class="input-group date" title="Fecha Inicial">
 
-              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <span class="input-group-addon"><i class="fa fa-calendar" title="Fecha Inicial"></i></span>
 
               <input type="text" class="form-control pull-right" placeholder="DD-MM-YYYY" data-date-format='yyyy-mm-dd' name="editarFechaInicial" id="editardatepicker">
             </div>
@@ -317,9 +317,9 @@ MODAL EDITAR PERIODO
           <div class="form-group">
             <label>Fecha Final:</label>
 
-            <div class="input-group date">
+            <div class="input-group date" title="Fecha Final">
 
-              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <span class="input-group-addon"><i class="fa fa-calendar" title="Fecha Final"></i></span>
 
               <input type="text" class="form-control pull-right" placeholder="DD-MM-YYYY" data-date-format='yyyy-mm-dd' name="editarFechaFinal" id="editardatepicker2">
             </div>
@@ -333,23 +333,15 @@ MODAL EDITAR PERIODO
 
             <div class="form-group">
 
-              <div class="input-group">
+              <div class="input-group" title="Estado del Periodo">
 
-                <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                <span class="input-group-addon"><i class="fa fa-asterisk" title="Estado del Periodo"></i></span>
 
                 <select class="form-control input-lg" name="editarestadoperiodo" id="editarestadoperiodo">
 
                   <option value="">Seleccionar Estado</option>
                   <option value="0">INACTIVO</option>
                   <option value="1">ACTIVO</option>
-
-                  <?php
-                  /*
-                  $dpto = ControladorPeriodoAcm::ctrCargarSelectEstado();
-                  foreach ($dpto as $key => $value) {
-                    echo "<option value='".$value['Activo']."'>".$value['Activo']."</option>";
-                  }*/
-                  ?>
 
                 </select>
 

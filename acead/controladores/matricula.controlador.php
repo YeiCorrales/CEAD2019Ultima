@@ -23,14 +23,31 @@ class ControladorMatricula{
 	MOSTRAR MATRICULA
 	=============================================*/
 
-	static public function ctrMostrarMatricula(){
+	static public function ctrMostrarMatricula($per){
 
-		$tabla = "tbl_matricula";
+    $tabla = "tbl_matricula";
 
-		$respuesta = ModeloMatricula::MdlMostrarMatricula($tabla);
+		$respuesta = ModeloMatricula::MdlMostrarMatricula($tabla, $per);
 
 		return $respuesta;
 	}
+
+  /*=============================================
+	MOSTRAR MATRICULA EN EL ALUMNO
+	=============================================*/
+
+	static public function ctrMostrarMatriculaAlumno($d){
+
+		$tabla = "tbl_matricula";
+
+		$respuesta = ModeloMatricula::MdlImprimirMatricula($tabla, $d);
+
+		return $respuesta;
+	}
+
+  /*=============================================
+	IMPRIMIR MATRICULA
+	=============================================*/
 
   static public function ctrImprimirMatricula($d){
 
@@ -69,7 +86,11 @@ class ControladorMatricula{
                           "Id_Seccion" => $_POST["adicionar3"],
                           "Id_PeriodoAcm" => $periodo);
 
+            $a = $_GET["idAlumno"];
+
             $respuesta = ModeloMatricula::mdlMatriculaAlumno($tabla, $datos);
+
+
 
             //echo "<script type='text/javascript'>alert('neles')</script>";
 
@@ -89,7 +110,7 @@ class ControladorMatricula{
 
     						if(result.value){
 
-    							window.location = "gestionacademica";
+    							window.location = "index.php?ruta=alumdata&idAlumno="+'.json_encode($a).';
 
     						}
 
@@ -154,6 +175,8 @@ static public function ctrBorrarMatricula(){
     $tabla = "tbl_matricula";
     $datos = $_GET["idMatricula"];
 
+    $a = $_GET["idAlumno"];
+
     $respuesta = ModeloMatricula::mdlBorrarMatricula($tabla, $datos);
 
     if($respuesta == "ok"){
@@ -169,7 +192,7 @@ static public function ctrBorrarMatricula(){
           }).then((result) => {
               if (result.value) {
 
-              window.location = "gestionacademica";
+              window.location = "index.php?ruta=alumdata&idAlumno="+'.$a.';
 
               }
             })

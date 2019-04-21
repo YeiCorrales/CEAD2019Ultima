@@ -135,7 +135,7 @@ $("#adicionar3").change(function(){
             }
         },
         error:function(xhr, status){
-            alert("¡Algo salió mal! : " + xhr + "(" + status + ")");
+            alert("Seleccione una Orientacion");
         }
 
     });
@@ -151,6 +151,7 @@ ELIMINAR MATRICULA
 $(".tablas").on("click", ".btnEliminarMatricula", function(){
 
   var idMatricula = $(this).attr("idMatricula");
+  var idAlumno = $(this).attr("idAlumno");
 
 
   swal({
@@ -167,7 +168,7 @@ $(".tablas").on("click", ".btnEliminarMatricula", function(){
     if(result.value){
 
 
-      window.location = "index.php?ruta=gestionacademica&idMatricula="+idMatricula;
+      window.location = "index.php?ruta=alumdata&idAlumno="+idAlumno+"&idMatricula="+idMatricula;
 
 
     }
@@ -175,6 +176,10 @@ $(".tablas").on("click", ".btnEliminarMatricula", function(){
   })
 
 })
+
+/*=============================================
+IMPRIMIR MATRICULA ALUMNOS
+=============================================*/
 
 $(".tablas").on("click", ".btnImprimirMatricula",function(){
   var aid = $(this).attr("idAlumno");
@@ -193,8 +198,143 @@ $(".tablas").on("click", ".btnImprimirMatricula",function(){
     }
 });
 
-$(".btnImprimirMatriculaGlobal").on("click",function(){
+/*=============================================
+IMPRIMIR MATRICULA GLOBAL
+=============================================*/
 
-        window.open("../acead/extensiones/tcpdf/examples/matriculaglobal.php");
+$(".btnImprimirMatriculaGlobal").on("click",function(periodo){
+
+  var periodo = $(this).attr("peri");
+
+        window.open("../acead/extensiones/tcpdf/examples/matriculaglobal.php?periodo="+periodo);
 
 });
+
+/*=============================================
+MATRICULA ALUMNO
+=============================================*/
+
+$(".tablas").on("click", ".btnMatriculaAlumno", function(){
+
+ var idAlumno = $(this).attr("idAlumno");
+ var nombre = $(this).attr("nombre");
+
+ var datos = new FormData();
+
+  datos.append("idAlumno", idAlumno);
+
+  $.ajax({
+
+    url:"ajax/alumnos.ajax.php",
+    method: "POST",
+    data: datos,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    success: function(respuesta){
+
+      //$("#matriculaAlumno").val(respuesta["Id_Alumno"]);
+      $("#matriculaAlumno").val(respuesta["PrimerNombre"]);
+
+
+  },
+                error: function(xhr, status){
+                    alert("ERROR: " + xhr + " >> " + status);
+              }
+
+  });
+
+  window.location = "index.php?ruta=alumdata&idAlumno="+idAlumno+"&nombre="+nombre;
+
+})
+
+
+$(".btnAgregarMatricula").on("click",function(){
+
+  var idAlumno = $(this).attr("idAlumno");
+
+  var datos = new FormData();
+
+   datos.append("idAlumno", idAlumno);
+
+   $.ajax({
+
+     url:"ajax/alumnos.ajax.php",
+     method: "POST",
+     data: datos,
+     contentType: false,
+     processData: false,
+     dataType: "json",
+     success: function(respuesta){
+
+                         //alert(respuesta);
+       $("#IdAlumno").val(respuesta["Id_Alumno"]);
+       $("#matriculaAlumno").val(respuesta["PrimerNombre"]);
+
+
+   },
+                 error: function(xhr, status){
+                     alert("ERROR: " + xhr + " >> " + status);
+               }
+
+   });
+
+
+});
+
+
+
+
+$(".salir").on("click",function(){
+
+  var idAlumno = $(this).attr("idAlumno");
+  var nombre = $(this).attr("nombre");
+
+  swal({
+    title: '¿Está seguro que desea salir?',
+    text: "¡Si no lo está puede cancelar la accíón!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Si, salir.'
+  }).then((result)=>{
+
+    if(result.value){
+
+      $("#matriculaModalidad").val("");
+      $("#adicionar1").empty();
+      $("#adicionar2").empty();
+      $("#adicionar3").empty();
+
+      window.location = "index.php?ruta=alumdata&idAlumno="+idAlumno+"&nombre="+nombre;
+
+
+    }
+
+  })
+
+})
+
+/*======================================================
+OBTENER LA VARIABLE DEL PERIODO ACADEMICO PARA FILTRAR
+LOS ALUMNOS MATRICULADOS POR PERIODO
+=======================================================*/
+
+$("#gestionPeriodo").change(function(){
+
+  var periodo = $(this).val();
+
+
+  if(periodo != null){
+
+    window.location = "index.php?ruta=gestionacademica&periodo="+periodo;
+
+  }else{
+
+    window.location = "gestionacademica"
+
+  }
+
+})

@@ -42,21 +42,22 @@ class ModeloMatricula{
 	MOSTRAR MATRICULA EN LA PANTALLA DE GESTION
 	=============================================*/
 
-	static public function MdlMostrarMatricula($tabla){
+	static public function MdlMostrarMatricula($tabla, $per){
 
 		$stmtA = ConexionBD::Abrir_Conexion()->prepare("SELECT PA.id_periodoacm AS IDP FROM tbl_periodoacademico PA WHERE NOW() >= FechaInicio AND NOW() <= FechaFin;");
 		$stmtA->execute();
 		$resultadoA = $stmtA->fetchAll(PDO::FETCH_BOTH);
 		$idPeriodoActual = $resultadoA[0]['IDP'];
 
-			$stmt = ConexionBD::Abrir_Conexion()->prepare("SELECT MA.Id_Matricula as IDMAT,
+			$stmt = ConexionBD::Abrir_Conexion()->prepare("SELECT DISTINCT ALU.Id_Alumno AS IDA,
+																										MA.Id_Matricula as IDMAT,
 																										CONCAT(ALU.PrimerNombre,' ',ALU.PrimerApellido) AS Alum,
 																										MODA.DescripModalidad as DMOD,
+																										PER.DescripPeriodo AS DPER,
+																										MA.Id_PeriodoAcm AS PER,
 																										ORI.Nombre AS DORI,
 																										CLAS.DescripClase AS DCLASE,
-																										SEC.DescripSeccion AS DSEC,
-																										PER.DescripPeriodo AS DPER,
-																										ALU.Id_Alumno AS IDA
+																										SEC.DescripSeccion AS DSEC
 																										FROM tbl_matricula MA,
 																										tbl_alumnos ALU,
 																										tbl_modalidades MODA,
@@ -70,7 +71,7 @@ class ModeloMatricula{
 																										AND (CLAS.Id_Clase=MA.Id_Clase)
 																										AND (SEC.Id_Seccion=MA.Id_Seccion)
 																										AND(PER.Id_PeriodoAcm=MA.Id_PeriodoAcm)
-																										AND(MA.Id_PeriodoAcm=$idPeriodoActual)");
+																										AND(MA.Id_PeriodoAcm=$per)");
 
 			$stmt -> execute();
 
@@ -83,7 +84,7 @@ class ModeloMatricula{
 	}
 
 	/*=============================================
-	MOSTRAR MATRICULA EN LA PANTALLA DE GESTION
+	IMPRIMIR MATRÍCULA DE ALUMNOS
 	=============================================*/
 
 	static public function MdlImprimirMatricula($tabla, $d){

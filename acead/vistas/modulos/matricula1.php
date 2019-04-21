@@ -34,7 +34,7 @@ MODAL MATRICULA ALUMNO
 
               <!-- ENTRADA PARA EL ALUMNO -->
 
-               <div class="form-group">
+               <div hidden class="form-group">
 
                 <div class="input-group">
 
@@ -47,28 +47,13 @@ MODAL MATRICULA ALUMNO
 
                </div>
 
-               <!-- ENTRADA PARA EL NOMBRE -->
-
-                <div class="form-group">
-
-                 <div class="input-group">
-
-                   <span class="input-group-addon"><i class="fa fa-id-badge"></i></span>
-
-                   <input type="text" class="form-control input-lg" id="nombreAlumno" name="nombreAlumno" readonly value="">
-                   
-                 </div>
-
-                </div>
-
-
 
 
               <!-- ENTRADA PARA SELECCIONAR LA MODALIDAD -->
 
               <div class="form-group">
 
-                <div class="input-group">
+                <div class="input-group" title="Modalidad">
 
                   <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
 
@@ -110,17 +95,17 @@ MODAL MATRICULA ALUMNO
 
                           <div class="col-lg-4 col-sm-4 mb-4">
                               <h5>Orientacion</h5>
-                              <select class="form-control" name="adicionar1" id="adicionar1" size="9" name="adicionar1"></select>
+                              <select class="form-control" name="adicionar1" id="adicionar1" size="9" name="adicionar1" required></select>
                           </div>
 
                           <div class="col-xl-4 col-sm-4 mb-4">
                             <h5>Clase</h5>
-                            <select class="form-control" name="adicionar2" id="adicionar2" size="9" name="adicionar2"></select>
+                            <select class="form-control" name="adicionar2" id="adicionar2" size="9" name="adicionar2" required></select>
                           </div>
 
                           <div class="col-xl-4 col-sm-4 mb-4">
                             <h5>Seccion</h5>
-                            <select class="form-control" name="adicionar3" id="adicionar3" size="9" name="adicionar3"></select>
+                            <select class="form-control" name="adicionar3" id="adicionar3" size="9" name="adicionar3" required></select>
                           </div>
                         </div>
 
@@ -157,10 +142,7 @@ MODAL MATRICULA ALUMNO
         $editarAlumno = new ControladorMatricula();
         $editarAlumno -> ctrMatricularAlumno();
 
-
         ?>
-
-
 
       </form>
 

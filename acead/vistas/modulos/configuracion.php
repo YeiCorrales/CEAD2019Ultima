@@ -27,19 +27,6 @@
 
     <div class="box">
 
-      <!-- BOTON AGREGAE USUARIO -->
-    <!--    <div class="box-header with-border">
-
-              <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarParametro"><i class="fa fa-plus"></i>
-
-                Agregar Parametro
-
-              </button>
-
-            </div>
-          -->
-
-
               <div class="box-body">
 
                 <table class="table table-bordered table-striped dt-responsive tablas">
@@ -62,8 +49,6 @@
 
                       <?php
 
-
-
                       $item = null;
                       $valor = null;
                       $modalidades = ControladorConfiguracion::ctrMostrarConfig($item, $valor);
@@ -81,8 +66,6 @@
                                   <div class="btn-group">
 
                                     <button class="btn btn-warning btnEditarParametro" idParametro="'.$value["Id_Parametro"].'" data-toggle="modal" data-target="#modalEditarParametro"><i class="fa fa-pencil"></i></button>
-
-
 
                                   </div>
 
@@ -127,18 +110,6 @@
   <section class="content">
 
     <div class="box">
-
-      <!-- BOTON AGREGAE USUARIO -->
-        <!-- <div class="box-header with-border">
-
-              <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarParametro"><i class="fa fa-plus"></i>
-
-                Agregar Parametro
-
-              </button>
-
-            </div>
-          -->
 
               <div class="box-body">
 
@@ -266,7 +237,7 @@
 
                                   <div class="btn-group">
 
-                                    <button class="btn btn-warning btnEditarDescuento" idDescuento="'.$value["Id_Descuento"].'" data-toggle="modal" data-target="#modalEditarDescuento"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-warning btnEditarDescuento" title="Editar" idDescuento="'.$value["Id_Descuento"].'" data-toggle="modal" data-target="#modalEditarDescuento"><i class="fa fa-pencil"></i></button>
 
                                   </div>
 
@@ -331,9 +302,9 @@ MODAL AGREGAR PARAMETRO
 
             <div class="form-group">
 
-              <div class="input-group">
+              <div class="input-group" title="Nombre del Parametro">
 
-                <span class="input-group-addon"><i class="fa fa-cog"></i></span>
+                <span class="input-group-addon"><i class="fa fa-cog" title="Nombre del Parametro"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoParametro" id="nuevoParametro" placeholder="Nombre del Parametro"  style="text-transform: uppercase" maxlength="30" required>
 
@@ -346,9 +317,9 @@ MODAL AGREGAR PARAMETRO
 
           <div class="form-group">
 
-            <div class="input-group">
+            <div class="input-group" title="Valor del Parametro">
 
-                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                <span class="input-group-addon"><i class="fa fa-pencil" title="Valor del Parametro"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoVal" id="nuevoVal" placeholder="Valor del Parametro" maxlength="100">
 
@@ -423,9 +394,9 @@ MODAL AGREGAR DESCUENTO
 
             <div class="form-group">
 
-              <div class="input-group">
+              <div class="input-group" title="Nombre del Descuento">
 
-                <span class="input-group-addon"><i class="fa fa-cog"></i></span>
+                <span class="input-group-addon"><i class="fa fa-cog" title="Nombre del Descuento"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoDescripDescuento" id="nuevoDescripDescuento" placeholder="Nombre del Descuento"  style="text-transform: uppercase" maxlength="30" required>
 
@@ -438,9 +409,9 @@ MODAL AGREGAR DESCUENTO
 
           <div class="form-group">
 
-            <div class="input-group">
+            <div class="input-group" title="Valor del Descuento">
 
-                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                <span class="input-group-addon"><i class="fa fa-pencil" title="Valor del Descuento"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevoDescuento" id="nuevoDescuento" placeholder="Valor del Descuento" maxlength="100">
 
@@ -515,9 +486,9 @@ MODAL EDITAR PARAMETRO
 
             <div class="form-group">
 
-              <div class="input-group">
+              <div class="input-group" title="Nombre del Parametro">
 
-                <span class="input-group-addon"><i class="fa fa-cog"></i></span>
+                <span class="input-group-addon"><i class="fa fa-cog" title="Nombre del Parametro"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarParametro" id="editarParametro" placeholder="Nombre del Parametro" style="text-transform: uppercase" maxlength="30" required>
 
@@ -530,9 +501,9 @@ MODAL EDITAR PARAMETRO
 
           <div class="form-group">
 
-            <div class="input-group">
+            <div class="input-group" title="Valor del Parametro">
 
-                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                <span class="input-group-addon"><i class="fa fa-pencil" title="Valor del Parametro"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarVal" id="editarVal" placeholder="Valor del Parametro" maxlength="15">
 
@@ -607,9 +578,9 @@ MODAL EDITAR PRECIO
 
             <div class="form-group">
 
-              <div class="input-group">
+              <div class="input-group" title="Nombre del Precio">
 
-                <span class="input-group-addon"><i class="fa fa-cog"></i></span>
+                <span class="input-group-addon"><i class="fa fa-cog" title="Nombre del Precio"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarDescripPrecio" id="editarDescripPrecio" placeholder="Descripcion del Precio" style="text-transform: uppercase" maxlength="30" required>
 
@@ -622,9 +593,9 @@ MODAL EDITAR PRECIO
 
           <div class="form-group">
 
-            <div class="input-group">
+            <div class="input-group" title="Valor del Precio">
 
-                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                <span class="input-group-addon"><i class="fa fa-pencil" title="Valor del Precio"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarPrecio" id="editarPrecio" placeholder="Valor del Precio" maxlength="15">
 
@@ -699,9 +670,9 @@ MODAL EDITAR DESCUENTO
 
             <div class="form-group">
 
-              <div class="input-group">
+              <div class="input-group" title="Nombre del Descuento">
 
-                <span class="input-group-addon"><i class="fa fa-cog"></i></span>
+                <span class="input-group-addon"><i class="fa fa-cog" title="Nombre del Descuento"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarDescripDescuento" id="editarDescripDescuento" placeholder="Descripcion del Descuento" style="text-transform: uppercase" maxlength="30" required>
 
@@ -714,9 +685,9 @@ MODAL EDITAR DESCUENTO
 
           <div class="form-group">
 
-            <div class="input-group">
+            <div class="input-group" title="Valor del Descuento">
 
-                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                <span class="input-group-addon"><i class="fa fa-pencil" title="Valor del Descuento"></i></span>
 
                 <input type="text" class="form-control input-lg" name="editarDescuento" id="editarDescuento" placeholder="Valor del Descuento" maxlength="15">
 

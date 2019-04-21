@@ -4,7 +4,7 @@
 
     <h1>
 
-      Gestión Académica
+      Gestión Académica - Alumnos Matriculados
 
     </h1>
 
@@ -23,13 +23,55 @@
     <div class="box">
 
       <!-- BOTON AGREGAR CLASE -->
-        <div class="box-header with-border">
+        <div class="box-header with-border col-lg-4 col-sm-4 mb-4">
 
-              <button class="btn btn-primary btnImprimirMatriculaGlobal">
+          <?php
+
+          $periodo = 0;
+
+          $periodo = $_GET["periodo"];
+
+          if($periodo != null){
+
+            $per = $_GET["periodo"];
+
+          }else{
+
+            $per = null;
+
+          }
+
+          $matricula = ControladorMatricula::ctrMostrarmatricula($per);
+
+          foreach ($matricula as $key => $value){
+            $pr = $value["PER"];
+            }
+
+            echo  '<button class="btn btn-primary btnImprimirMatriculaGlobal" peri="'.$pr.'">
 
                 Imprimir Matricula Global
 
-              </button>
+              </button>';
+              
+              ?>
+
+        </div>
+
+            <div class="box-header with-border pull-right">
+
+              <select class="form-control input-lg" id="gestionPeriodo" name="gestionPeriodo" style="background-color:#9ed2af">
+
+                     <option value="">Seleccione Periodo Academico</option>
+
+                     <?php
+
+                     $dpto = ControladorSecciones::ctrCargarPeriodo();
+                     foreach ($dpto as $key => $value) {
+                       echo "<option value='".$value['Id_PeriodoAcm']."'>".$value['DescripPeriodo']."</option>";
+                     }
+                     ?>
+
+                   </select>
 
             </div>
 
@@ -42,12 +84,7 @@
          <tr>
 
            <th style="width:10px">#</th>
-           <th style="width:10px">Id</th>
            <th>Alumno</th>
-           <th>Modalidad</th>
-           <th>Orientacion</th>
-           <th>Clase</th>
-           <th >Seccion</th>
            <th style="width:50px">Período Académico</th>
            <th>Acciones</th>
 
@@ -62,19 +99,11 @@
 	//Keren & Yeimi XD was here! y Estoy probando varias cosas (Att: Yeimi. Te quiero Keren ;* // A vos Tambien Nico. XD)
 
 
-
-        $matricula = ControladorMatricula::ctrMostrarmatricula();
-
        foreach ($matricula as $key => $value){
 
           echo ' <tr>
                   <td>'.($key+1).'</td>
-                  <td>'.$value["IDMAT"].'</td>
                   <td>'.$value["Alum"].'</td>
-                  <td>'.$value["DMOD"].'</td>
-                  <td>'.$value["DORI"].'</td>
-                  <td>'.$value["DCLASE"].'</td>
-                  <td>'.$value["DSEC"].'</td>
                   <td>'.$value["DPER"].'</td>';
 
 
@@ -82,9 +111,9 @@
 
                      <div class="btn-group">
 
-                     <button class="btn btn-danger btnEliminarMatricula" idMatricula="'.$value["IDMAT"].'"><i class="fa fa-times"></i></button>
-                     <button class="btn btn-success btnCobroMatricula" idAlumno="'.$value["IDA"].'"data-toggle="modal" data-target="#modalEditarCobroMatricula"><i class="fa fa-cart-arrow-down"></i></button>
-                     <button class="btn btn-info btnImprimirMatricula" idAlumno="'.$value["IDA"].'"><i class="fa fa-print"></i></button>
+                     <button title="Ver Matrícula" class="btn btn-success btnMatriculaAlumno" idAlumno="'.$value["IDA"].'" nombre="'.$value["Alum"].'"><i class="fa fa-building"></i></button>
+                     <button title="Ver Cobros" class="btn btn-success btnCobroMatricula" idAlumno="'.$value["IDA"].'"data-toggle="modal" data-target="#modalEditarCobroMatricula"><i class="fa fa-cart-arrow-down"></i></button>
+                     <button title="Imprimir Matricula" class="btn btn-info btnImprimirMatricula" idAlumno="'.$value["IDA"].'"><i class="fa fa-print"></i></button>
 
 
                      </div>
