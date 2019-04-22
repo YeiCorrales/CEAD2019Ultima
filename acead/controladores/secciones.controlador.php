@@ -111,18 +111,17 @@ class ControladorSecciones{
 
   static public function ctrCrearClaseSeccion(){
 
-    if(isset($_POST["nuevadescedit"])){
+    if(isset($_POST["nuevoDescripSeccion"])){
 
-      if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevadescedit"])){
+      if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoDescripSeccion"])){
 
         $tabla = "tbl_clases_secciones";
 
 
-        $datos = array("Id_Clase" => $_POST["nuevoclaseedit"],
-                       "Id_Seccion" => $_POST["idseccionedit"]);
+        $datos = array("Id_Clase" => $_POST["nuevoSelecClase"]);
 
 
-        $respuesta = ModeloClases::mdlIngresarClaseSeccion($tabla, $datos);
+        $respuesta = ModeloSeccion::mdlIngresarClaseSeccion($tabla, $datos);
        }
     }
 
@@ -294,6 +293,35 @@ class ControladorSecciones{
 
 		return $respuesta;
 
+	}
+
+
+
+	/*=============================================
+	MOSTRAR AULA
+	=============================================*/
+
+	static public function ctrCargarAula(){
+
+		$tabla = "tbl_aulas";
+
+		$respuesta = ModeloSeccion::mdlCargarSelect($tabla);
+
+		return $respuesta;
+
+	}
+
+	/*=============================================
+	IMPRIMIR Secciones
+	=============================================*/
+
+  static public function ctrImprimirSeccion($d){
+
+		$tabla = "tbl_secciones";
+
+		$respuesta = ModeloSeccion::MdlImprimirSecciones($tabla, $d);
+
+		return $respuesta;
 	}
 
 }

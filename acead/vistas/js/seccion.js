@@ -9,8 +9,10 @@ $('#TablaSecciones tbody').on('click', '.btnEditarSeccion', function(){
 	
 	var obj = $(this).parent().parent().parent();
 	idSecc = $('td', obj).eq(1).text();
+	idClase = $('td', obj).eq(2).text();
 
 	$('#idseccionedit').val(idSecc);	
+   
 
 });
 
@@ -90,5 +92,26 @@ $('button[name=btneditarSecc]').on('click', function(){
             //alert(xhr.response + " -- " + status);
         }
   });
+
+/*=============================================
+IMPRIMIR TOTAL SECCIONES
+=============================================*//*IMPRIMIR FACTURA*/
+$(".tablas").on("click", ".btnImprimirSeccion",function(){
+  var IDSEC = $(this).attr("IDSEC");
+  //var nombrealumno = $(this).attr("Alumno");
+  //alert(idAlumno);
+    var obj =$(this).parent().parent();
+    //aid = $('idAlumno', obj).eq(0).text();
+    //alert(aid);
+    //alert(nombrealumno);
+    //nombrealumno = $('IDA', obj).eq(1).text();
+   // alert(aid);
+    if(IDSEC=='' || IDSEC==0 || IDSEC==null || IDSEC==undefined){
+        alert('Error!!!!!')
+    }else{
+        window.open("../acead/extensiones/tcpdf/examples/seccionestotal.php?Id_Seccion="+IDSEC, "_blank");
+    }
+});
+
 
 });

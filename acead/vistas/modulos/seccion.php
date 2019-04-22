@@ -83,7 +83,7 @@
 
                                   <div class="btn-group">
                                     <button class="btn btn-warning btnEditarSeccion" IDSEC="'.$value["IDSEC"].'" data-toggle="modal" data-target="#modalEditarSeccion"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btnEliminarSeccion" idSeccion="'.$value["IDSEC"].'"><i class="fa fa-times"></i></button>
+                                    <button title="Imprimir Seccion" class="btn btn-info btnImprimirSeccion" IDSEC="'.$value["IDSEC"].'"><i class="fa fa-print"></i></button>
                                     </div>
 
                                   </td>
@@ -140,9 +140,9 @@ MODAL AGREGAR SECCION
 
            <div class="form-group">
 
-             <div class="input-group">
+             <div class="input-group" title = "Seleccione Clase">
 
-               <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+               <span class="input-group-addon"><i class="fa fa-book" title = "Seleccione Clase"></i></span>
 
                <select class="form-control input-lg" name="nuevoSelecClase">
 
@@ -167,9 +167,9 @@ MODAL AGREGAR SECCION
 
            <div class="form-group">
 
-             <div class="input-group">
+             <div class="input-group" title = "Seleccione Periodo Academico">
 
-               <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+               <span class="input-group-addon"><i class="fa fa-calendar" title = "Seleccione Periodo Academico"></i></span>
 
                <select class="form-control input-lg" name="nuevoPeriodo">
 
@@ -193,9 +193,9 @@ MODAL AGREGAR SECCION
 
            <div class="form-group">
 
-             <div class="input-group">
+             <div class="input-group" title = "Seleccione Maestro">
 
-               <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+               <span class="input-group-addon"><i class="fa fa-user" title = "Seleccione Maestro"></i></span>
 
                                     <select class="form-control input-lg" name="nuevoMaestro">
 
@@ -221,9 +221,9 @@ MODAL AGREGAR SECCION
 
         <div class="form-group">
 
-          <div class="input-group">
+          <div class="input-group" title = "Ingrese Nombre Seccion">
 
-            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <span class="input-group-addon"><i class="fa fa-user" title = "Ingrese Nombre Seccion"></i></span>
 
             <input type="text" class="form-control input-lg" name="nuevoDescripSeccion" id="nuevoDescripSeccion" placeholder="Nombre de la Seccion" style="text-transform: uppercase" maxlength="" required>
 
@@ -235,9 +235,9 @@ MODAL AGREGAR SECCION
 
           <div class="form-group">
 
-            <div class="input-group">
+            <div class="input-group" title = "Ingrese Hora Sección">
 
-              <span class="input-group-addon"><i class="fa fa-times"></i></span>
+              <span class="input-group-addon"><i class="fa fa-times" title = "Ingrese Hora Sección"></i></span>
 
               <input type="time" class="form-control input-lg" name="HrsClas" id="HrsClas" placeholder="hrs:min"  pattern="^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$" class="inputs time" required>
 
@@ -245,19 +245,32 @@ MODAL AGREGAR SECCION
 
           </div>
 
-        <!-- ENTRADA PARA EL AULA -->
+     
+           <!-- ENTRADA PARA SELECCIONAR AULA -->
 
-        <div class="form-group">
+           <div class="form-group">
 
-          <div class="input-group">
+             <div class="input-group" title = "Seleccione Aula">
 
-            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+               <span class="input-group-addon"><i class="fa fa-user" title = "Seleccione Aula"></i></span>
 
-                    <input type="number" class="form-control input-lg" name="nuevaAula" placeholder="AULA" maxlength="3" pattern="[0-9]">
+                                    <select class="form-control input-lg" name="nuevoAula">
 
-          </div>
+                      <option value="">Seleccione Aula</option>
 
-        </div>
+                      <?php
+                      $maestro = ControladorSecciones::ctrCargarAula();
+                                   foreach ($maestro as $key => $value) {
+
+                        echo "<option value='".$value['Id_Aula']."'>".$value['Num_Aula']."</option>";
+                      }
+                      ?>
+
+                    </select>
+
+             </div>
+
+           </div>
 
 
 
@@ -317,7 +330,7 @@ MODAL AGREGAR SECCION
     CABEZA DEL MODAL
     ======================================-->
 
-    <div class="modal-header" style="background:#3c8dbc; color:white">
+    <div class="modal-header" style="background:#f39c12; color:white">
 
       <button type="button" class="close" data-dismiss="modal">×</button>
 

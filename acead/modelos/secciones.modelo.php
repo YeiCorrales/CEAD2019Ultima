@@ -24,6 +24,26 @@ class ModeloSeccion{
   }
 
 
+    /*=============================================
+  IMPRIMIR SECCIONES
+  =============================================*/
+
+  static public function MdlImprimirSecciones($tabla, $d){
+
+
+      $stmt = ConexionBD::Abrir_Conexion()->prepare("SELECT SEC.Id_Seccion as IDSEC, SEC.DescripSeccion AS DSEC, CONCAT(USU.PrimerNombre,' ',USU.PrimerApellido) AS MAE, SEC.HraClase as SHRA, SEC.AulaClase AS AU, PER.Id_PeriodoAcm AS DPER FROM tbl_usuarios USU, tbl_secciones SEC, tbl_periodoacademico PER WHERE (USU.Id_usuario=SEC.Id_usuario) AND (SEC.Id_Seccion=SEC.Id_Seccion) AND(PER.Id_PeriodoAcm=SEC.Id_PeriodoAcm)");
+
+      $stmt -> execute();
+
+      return $stmt -> fetchAll();
+
+    $stmt -> Cerrar_Conexion();
+
+    $stmt = null;
+
+  }
+
+
 
   /*=============================================
   REGISTRO DE SECCION
@@ -74,8 +94,9 @@ class ModeloSeccion{
     $stmt = ConexionBD::Abrir_Conexion()->prepare("INSERT INTO $tabla (Id_Clase, Id_Seccion)
                                                   VALUES (:idclase, :idseccion)");
 
-    $stmt->bindParam(":idclase", $idult, PDO::PARAM_STR);
-    $stmt->bindParam(":idseccion", $datos["Id_Seccion"], PDO::PARAM_STR);
+    
+    $stmt->bindParam(":idclase", $datos["Id_Clase"], PDO::PARAM_STR);
+    $stmt->bindParam(":idseccion", $idult, PDO::PARAM_STR);
 
 
 
