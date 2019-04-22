@@ -381,10 +381,14 @@ function metodo_insertanota(){
         $fechaactual = $hoy['year'] . "-" . $hoy['mon'] . "-" . $hoy['mday'];
 
 //        $stmt= ConexionBD::Abrir_Conexion()->prepare("select distinct TAL.id_alumno AS IDAL, concat(TAL.primernombre, ' ', TAL.segundonombre, ' ', TAL.primerapellido, ' ', TAL.segundoapellido) AS nombre, TC.id_calificaciones AS IDC, TC.notafinal AS NF, TC.id_alumno AS IA, TC.id_seccion AS IDS, TC.cod_obs AS CO, TC.id_clase AS ICL from tbl_calificaciones TC inner join ((tbl_secciones TS inner join (tbl_matricula TM inner join tbl_alumnos TAL o n TM.id_alumno=TAL.id_alumno) on TS.id_Seccion=TM.id_seccion) INNER JOIN tbl_periodoacademico TPA on TS.id_periodoacm=TPA.id_periodoacm) on TC.id_seccion=TS.id_seccion where TC.id_clase=".$idc." and TC.id_seccion=".$ids." and (NOW() >= TPA.fechainicio and NOW() <= TPA.fechafin);");
-        $stmt= ConexionBD::Abrir_Conexion()->prepare("select distinct TAL.id_alumno AS IDAL, concat(TAL.primernombre, ' ', TAL.segundonombre, ' ', TAL.primerapellido, ' ', TAL.segundoapellido) AS nombre, TC.id_calificaciones AS IDC, TC.notafinal AS NF, TC.id_alumno AS IA, TC.id_seccion AS IDS, TC.cod_obs AS CO, TC.id_clase AS ICL from tbl_calificaciones TC inner join ((tbl_secciones TS inner join (tbl_matricula TM inner join tbl_alumnos TAL on TM.id_alumno=TAL.id_alumno) on TS.id_Seccion=TM.id_seccion) INNER JOIN tbl_periodoacademico TPA on TS.id_periodoacm=TPA.id_periodoacm) on TC.id_seccion=TS.id_seccion where TC.id_clase=".$idc." and TC.id_seccion=".$ids." and (NOW() >= TPA.fechainicio and NOW() <= TPA.fechafin);");
+        $stmt= ConexionBD::Abrir_Conexion()->prepare("select distinct TAL.id_alumno AS IDAL, concat(TAL.primernombre, ' ', TAL.segundonombre, ' ', TAL.primerapellido, ' ', TAL.segundoapellido) AS nombre, TC.id_calificaciones AS IDC, TC.notafinal AS NF, TC.id_alumno AS IA, TC.id_seccion AS IDS, TC.cod_obs AS CO, TC.id_clase AS ICL from tbl_calificaciones TC inner join ((tbl_secciones TS inner join (tbl_matricula TM inner join tbl_alumnos TAL on TM.id_alumno=TAL.id_alumno) on TS.id_Seccion=TM.id_seccion) INNER JOIN tbl_periodoacademico TPA on TS.id_periodoacm=TPA.id_periodoacm) on TC.id_seccion=TS.id_seccion where TC.id_clase=".$idc." and TC.id_seccion=".$ids." and (NOW() >= TPA.fechainicio and NOW() <= TPA.fechafin) group by TAL.id_alumno;");
         $stmt->execute();
         $resultado=$stmt->fetchAll(PDO::FETCH_BOTH);
-        ConexionBD::Inserta_bitacora($fechaActual, 'Agregando notas', 'Notas individuales por Alumnos', $idu, 8);
+        
+        //ConexionBD::inserta_bitacora($fechaActual, 'Agregando notas', 'Notas individuales por Alumnos', $idu, 8);
+        
+        ConexionBD::Inserta_bitacora($fechaactual, 'Agregando notas', 'Notas individuales por Alumnos', $idu, 8);
+        
         echo json_encode($resultado);
    }
 
