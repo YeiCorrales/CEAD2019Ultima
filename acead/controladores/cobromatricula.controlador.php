@@ -45,11 +45,30 @@ class ControladorCobroMatricula
 						}
 					});
 					</script>';
+				}else{
+					echo '<script>
+					swal(
+					{
+						type: "error",
+						title: "¡Pago de matrícula ya cancelado!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+
+					}).then((result)=>
+					{
+						if(result.value)
+						{
+							window.location = "cobromatricula";
+
+						}
+					});
+					</script>';
 				}
 
 			}else
 				{
-					echo 
+					echo
 					'<script>
 					swal({
 						type: "error",
@@ -66,7 +85,7 @@ class ControladorCobroMatricula
 				}
 		}
 	}
-	 
+
 /*=============================================
   MOSTRAR PAGOS DE LA MATRICULA
   =============================================*/

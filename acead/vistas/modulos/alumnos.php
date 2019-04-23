@@ -84,13 +84,15 @@
 
                     <div class="btn-group">
 
-                    <button class="btn btn-success btnMatriculaAlumno" idAlumno="'.$value["Id_Alumno"].'" data-toggle="modal" data-target="#modalMatriculaAlumno"><i class="fa fa-building"></i></button>
+                    <button title="Matricular Alumno" class="btn btn-success btnMatriculaAlumno" idAlumno="'.$value["Id_Alumno"].'" data-toggle="modal" data-target="#modalMatriculaAlumno"><i class="fa fa-building"></i></button>
 
-                    <button class="btn btn-warning btnEditarAlumno" idAlumno="'.$value["Id_Alumno"].'" data-toggle="modal" data-target="#modalEditarAlumno"><i class="fa fa-pencil"></i></button>
+                    <button title="Editar Alumno" class="btn btn-warning btnEditarAlumno" idAlumno="'.$value["Id_Alumno"].'" data-toggle="modal" data-target="#modalEditarAlumno"><i class="fa fa-pencil"></i></button>
 
-                    <button class="btn btn-info btnContactoResponsable" idAlumno="'.$value["Id_Alumno"].'" data-toggle="modal" data-target="#modalContactoResponsable"><i class="fa fa-envelope"></i></button>
+                    <button title="Contacto Responsable" class="btn btn-info btnContactoResponsable" idAlumno="'.$value["Id_Alumno"].'" data-toggle="modal" data-target="#modalContactoResponsable"><i class="fa fa-envelope"></i></button>
 
-                    <button class="btn btn-danger btnEliminarAlumno" idAlumno="'.$value["Id_Alumno"].'"><i class="fa fa-times"></i></button>
+                    <button title="Eliminar Alumno" class="btn btn-danger btnEliminarAlumno" idAlumno="'.$value["Id_Alumno"].'"><i class="fa fa-times"></i></button>
+
+                    <button title="Más información" class="btn btn-primary btnInfoAlumno" idAlumno="'.$value["Id_Alumno"].'"><i class="fa fa-print"></i></button>
 
 
 

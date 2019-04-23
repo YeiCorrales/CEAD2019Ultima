@@ -152,3 +152,11 @@ $(".tablas").on("click", ".btnContactoResponsable", function(){
   });
 
 })
+
+/*IMPRIMIR FACTURA*/
+$(".tablas").on("click", ".btnInfoAlumno", function()
+{
+  var $idAlumnoInfo = $(this).attr("idAlumno"); 
+  //alert(ida);
+  window.open("../acead/extensiones/tcpdf/examples/InfoAlumno.php?idAlumno="+idAlumnoInfo, "_blank");
+});

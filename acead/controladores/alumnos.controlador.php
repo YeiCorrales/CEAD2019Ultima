@@ -270,4 +270,17 @@ class ControladorAlumnos{
 
 	}
 
+	/*=============================================
+	IMPRIMIR INFO ALUMNO
+	=============================================*/
+
+  static public function ctrImprimirInfoAlumno($idAlumnoInfo){
+
+		$tabla = "tbl_alumnos";
+
+		$respuesta = ModeloAlumnos::MdlMostrarAlumnos($tabla, $idAlumnoInfo);
+
+		return $respuesta;
+	}
+
 }
