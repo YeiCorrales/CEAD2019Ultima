@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start();
 ?>
 
@@ -185,6 +185,7 @@ CUERPO DOCUMENTO
 <script src="vistas/js/mostrarprecio.js"></script>
 <script src="vistas/js/pagomes.js"></script>
 <script src="vistas/js/seccion.js"></script>
+<script src="vistas/js/roles.js"></script>
 <script src="vistas/js/aulas.js"></script>
 
 </body>

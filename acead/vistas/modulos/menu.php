@@ -4,6 +4,17 @@
 
 		<ul class="sidebar-menu">
 
+<?php
+	//OBTENEMOS EL ROL DEL USUARIO
+		$rol = $_SESSION["perfil"];
+
+	//LLAMAMOS LOS PERMISOS DE ESE ROL
+		$per = ControladorRoles::ctrAtributosRol($rol);
+
+			echo '
+			<li>
+			</li>
+
 			<li class="active">
 
 				<a href="inicio">
@@ -13,9 +24,14 @@
 
 				</a>
 
-			</li>
+			</li>';
 
-			<li>
+			foreach ($per as $key => $permiso){
+
+		//MENU USUARIOS
+			if($permiso["OBJ"]== 8 && $permiso["PC"]== 1){
+
+			echo '<li>
 
 				<a href="usuarios">
 
@@ -24,9 +40,29 @@
 
 				</a>
 
-			</li>
+				<ul class="treeview-menu">
 
-			<li>
+				<li>
+
+					<a href="roles">
+
+						<i class="fa fa-circle-o"></i>
+						<span>Roles de Usuarios</span>
+
+					</a>
+
+				</li>
+
+			</ul>
+
+			</li>';
+
+		}
+
+		//MENU ALUMNOS
+		if($permiso["OBJ"]== 9 && $permiso["PC"]== 1){
+
+			echo '<li>
 
 				<a href="alumnos">
 
@@ -34,7 +70,8 @@
 					<span>Alumnos</span>
 
 				</a>
-                            <ul class="treeview-menu">
+
+					<ul class="treeview-menu">
 
 					<li>
 
@@ -47,34 +84,17 @@
 
 					</li>
 
-<!--					<li>
-
-						<a href="modalidades">
-
-							<i class="fa fa-circle-o"></i>
-							<span>Modalidades y Clases</span>
-
-						</a>
-
-					</li>
-
-					<li>
-
-						<a href="seccion">
-
-							<i class="fa fa-circle-o"></i>
-							<span>Secciones</span>
-
-						</a>
-
-					</li>-->
-
 				</ul>
 
 
-			</li>
+			</li>';
 
-			<li class="treeview">
+}
+
+//MENU GESTION ACADEMICA
+	if($permiso["OBJ"]== 10 && $permiso["PC"]==1){
+
+			echo '<li class="treeview">
 
 				<a href="gestionacademica">
 
@@ -138,9 +158,13 @@
 
 				</ul>
 
-			</li>
+			</li>';
+		}
 
-			<li>
+	//MENU CALIFICACIONES
+		if($permiso["OBJ"]== 11 && $permiso["PC"]== 1){
+
+			echo '<li>
 
 				<a href="registracalificaciones">
 
@@ -149,14 +173,14 @@
 
 				</a>
 
+			</li>';
 
+}
 
-			</li>
+//MENU COBROS
+	if($permiso["OBJ"]==12 && $permiso["PC"]==1){
 
-
-
-
-			<li class="treeview">
+			echo '<li class="treeview">
 
 				<a href="gestionacademica">
 
@@ -198,9 +222,13 @@
 
 				</ul>
 
-			</li>
+			</li>';
+		}
 
-			<li>
+	//MENU PARAMETROS
+		if($permiso["OBJ"]==13 && $permiso["PC"]==1){
+
+			echo '<li>
 
 				<a href="configuracion">
 
@@ -209,7 +237,11 @@
 
 				</a>
 
-			</li>
+			</li>';
+
+		}
+}
+			?>
 
 		</ul>
 
